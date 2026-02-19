@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+<PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ravi.Web.ServiceModel\Ravi.Web.ServiceModel.csproj" />
+    <ProjectReference Include="..\Ravi.Web.Services\Ravi.Web.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.3.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <!-- Run OpenAPI generator before building -->
+  <Target Name="PreBuildOpenApi" BeforeTargets="BeforeBuild">
+    <Exec Command="bash OpenApiSpec/build.sh" WorkingDirectory="$(ProjectDir)" />
+  </Target>
+
+</Project>

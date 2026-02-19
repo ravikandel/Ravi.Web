@@ -1,0 +1,14 @@
+# v1/health-check:
+HealthCheck:
+    get:
+      tags:
+        - HealthCheck
+      summary: Health Check API
+      operationId: HealthCheckV1
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '../models/health-check.yaml#/HealthCheckResponseV1'

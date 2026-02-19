@@ -1,0 +1,11 @@
+openapi: 3.0.0
+info:
+  title: Ravi Web API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8090/api
+paths:
+
+  # Health Check Controller
+  /v1/health-check:
+    $ref: './paths/health-check.yaml#/HealthCheck'

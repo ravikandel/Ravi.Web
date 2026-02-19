@@ -1,0 +1,5 @@
+packageName: Ravi.Web.Client
+targetFramework: net8.0
+sourceFolder: ""
+useDateTimeOffset: true
+nullableReferenceTypes: true

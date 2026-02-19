@@ -1,0 +1,13 @@
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/Ravi.Web.Client.csproj.AssemblyReference.cache
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/Ravi.Web.Client.GeneratedMSBuildEditorConfig.editorconfig
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/Ravi.Web.Client.AssemblyInfoInputs.cache
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/Ravi.Web.Client.AssemblyInfo.cs
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/Ravi.Web.Client.csproj.CoreCompileInputs.cache
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/Ravi.Web.Client.sourcelink.json
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/bin/Debug/net8.0/Ravi.Web.Client.deps.json
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/bin/Debug/net8.0/Ravi.Web.Client.dll
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/bin/Debug/net8.0/Ravi.Web.Client.pdb
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/Ravi.Web.Client.dll
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/refint/Ravi.Web.Client.dll
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/Ravi.Web.Client.pdb
+/Volumes/Backup Volume/Reference_Projects/Net_8/Ravi.Web/Ravi.Web.Client/obj/Debug/net8.0/ref/Ravi.Web.Client.dll

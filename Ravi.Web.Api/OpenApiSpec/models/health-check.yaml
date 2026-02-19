@@ -1,0 +1,29 @@
+HealthCheckResponseV1:
+  type: object
+  properties:
+    server:
+      type: string
+      nullable: true
+    database:
+      type: string
+      nullable: true
+    status:
+      $ref: '#/HealthStatusEnumV1'
+    description:
+      type: string
+      nullable: true
+    exception:
+      type: string
+      nullable: true
+    timestamp:
+      type: string
+      format: date-time
+      nullable: true
+
+HealthStatusEnumV1:
+  type: string
+  enum:
+    - Healthy
+    - Unhealthy
+    - Degraded
+  default: Unhealthy

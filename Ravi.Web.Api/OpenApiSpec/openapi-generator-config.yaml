@@ -1,0 +1,11 @@
+packageName: Ravi.Web.Api
+classModifier: abstract
+operationModifier: abstract
+operationResultTask: true
+useNewtonsoft: true
+sourceFolder: ""
+enumValueSuffix: ""
+useDateTimeOffset: true
+nullableReferenceTypes: true
+useSwashbuckle: false
+useDateTimeForDate: true
