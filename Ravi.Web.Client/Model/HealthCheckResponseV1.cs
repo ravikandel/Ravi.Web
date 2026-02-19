@@ -227,7 +227,7 @@ namespace Ravi.Web.Client.Model
                             exception = new Option<string?>(utf8JsonReader.GetString());
                             break;
                         case "timestamp":
-                            timestamp = new Option<DateTimeOffset?>(JsonSerializer.Deserialize<DateTimeOffset?>(ref utf8JsonReader, jsonSerializerOptions));
+                            timestamp = new Option<DateTimeOffset?>(JsonSerializer.Deserialize<DateTime?>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         default:
                             break;

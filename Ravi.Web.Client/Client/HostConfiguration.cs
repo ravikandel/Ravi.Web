@@ -67,7 +67,7 @@ namespace Ravi.Web.Client.Client
 
             List<IHttpClientBuilder> builders = new List<IHttpClientBuilder>();
 
-            builders.Add(_services.AddHttpClient<IHealthCheckApi, HealthCheckApi>(client));
+            builders.Add(_services.AddHttpClient<IHealthCheckApi, HealthCheckApi>("Ravi.Web.Client.Api.IHealthCheckApi", client));
             
             if (builder != null)
                 foreach (IHttpClientBuilder instance in builders)

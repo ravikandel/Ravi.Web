@@ -11,16 +11,18 @@ public class DbHealthResult
     public Exception? Exception { get; set; }
 }
 
+
 public interface IHealthCheckRepository
 {
-    DbHealthResult CheckDatabaseHealth();
+    Task<DbHealthResult> CheckDatabaseHealthAsync();
 }
+
 
 public class HealthCheckRepository(IDbConnectionFactory connectionFactory) : IHealthCheckRepository
 {
     private readonly IDbConnectionFactory _connectionFactory = connectionFactory;
 
-    public DbHealthResult CheckDatabaseHealth()
+    public Task<DbHealthResult> CheckDatabaseHealthAsync()
     {
         var result = new DbHealthResult();
 
@@ -47,6 +49,6 @@ public class HealthCheckRepository(IDbConnectionFactory connectionFactory) : IHe
             result.Exception = ex;
         }
 
-        return result;
+        return Task.FromResult(result);
     }
 }

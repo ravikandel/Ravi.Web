@@ -49,7 +49,6 @@ openapi-generator generate \
   --library generichost \
   -i "$API_DIR/OpenApiSpec/openapi.yaml" \
   -o "$SOLUTION_DIR/" \
-  -t "$SCRIPT_DIR/CustomTemplate" \
   -c "$SCRIPT_DIR/openapi-generator-config.yaml" \
   --openapi-generator-ignore-list **/*.*,*.*,!*.Client/Model/*.*,!*.Client/Api/*.*,!*.Client/Client/*.*,!*.Client/Extensions/*.* \
 

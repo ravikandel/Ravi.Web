@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ravi.Web.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+698f6efde6ef3cf462df640ab54d1bdaa267654b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+535adad082f33f9495d9edc26b5274d97d1e9f5f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ravi.Web.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ravi.Web.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

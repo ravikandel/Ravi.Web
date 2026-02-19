@@ -3,16 +3,18 @@ using Ravi.Web.ServiceModel.HealthCheck;
 
 namespace Ravi.Web.Services.HealthCheck;
 
+
 public interface IHealthCheckService
 {
-    HealthCheckResponse CheckHealth();
+    Task<HealthCheckResponse> CheckHealthAsync();
 }
+
 
 public class HealthCheckService(IHealthCheckRepository healthCheckRepository) : IHealthCheckService
 {
-    public HealthCheckResponse CheckHealth()
+    public async Task<HealthCheckResponse> CheckHealthAsync()
     {
-        var dbResult = healthCheckRepository.CheckDatabaseHealth();
+        var dbResult = await healthCheckRepository.CheckDatabaseHealthAsync();
 
         var response = new HealthCheckResponse
         {
@@ -22,7 +24,6 @@ public class HealthCheckService(IHealthCheckRepository healthCheckRepository) : 
             Description = "Db Checkup " + (dbResult.Success ? "success" : "fail"),
             Timestamp = DateTimeOffset.UtcNow,
             Exception = dbResult.Exception?.ToString()
-
         };
 
         return response;
