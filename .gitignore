@@ -1,8 +1,8 @@
 # .gitignore for .NET, Node.js, and general development
 
 # Build results
-bin/
-obj/
+**/bin/
+**/obj/
 
 # User-specific files
 *.user
