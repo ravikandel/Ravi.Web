@@ -1,0 +1,54 @@
+# .gitignore for .NET, Node.js, and general development
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+Logs/
+*.log
+
+# Visual Studio Code
+.vscode/
+
+# Node.js
+node_modules/
+dist/
+
+# Environment files
+.env
+.env.*
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Others
+*.swp
+*.bak
+*.tmp
+
+# OpenAPI generated code
+Ravi.Web.Api/OpenApiSpec/build/
+Ravi.Web.Api/OpenApiSpec/models/
+Ravi.Web.Api/OpenApiSpec/paths/
+
+# Ignore coverage reports
+coverage/
+
+# Ignore npm debug log
+npm-debug.log*
+
+# Ignore yarn error log
+yarn-error.log*
