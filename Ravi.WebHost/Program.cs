@@ -23,6 +23,7 @@ try
 
     // ===== Nlog configuration =====
     builder.Logging.ClearProviders();
+    builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
     builder.Logging.AddConsole();
     builder.Host.UseNLog();
 
@@ -72,18 +73,19 @@ try
         });
 
     // ===== Authorization (using AddAuthorizationBuilder) =====
-    builder.Services.AddAuthorization(options =>
-    {
-        options.AddPolicy("MyGiftApiPolicy", policy =>
-            policy.RequireClaim("role")
-                  .RequireClaim("userId"));
-    });
+
+    builder.Services.AddAuthorizationBuilder()
+    .AddPolicy("MyGiftApiPolicy", policy =>
+        policy.RequireClaim("role")
+              .RequireClaim("userId"));
 
     // ===== Swagger =====
     builder.Services.AddSwaggerWithJwt();
 
+
     // ====Setup App =====
     var app = builder.Build();
+
     // ===== HTTPS, Auth =====
     if (!app.Environment.IsDevelopment())
     {
