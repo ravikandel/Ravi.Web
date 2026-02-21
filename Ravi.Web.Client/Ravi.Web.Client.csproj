@@ -13,9 +13,4 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
   </ItemGroup>
 
-    <!-- Run OpenAPI generator before building -->
-    <Target Name="PreBuildOpenApi" BeforeTargets="BeforeBuild">
-      <Exec Command="bash OpenApiSpec/build.sh" WorkingDirectory="$(ProjectDir)" />
-    </Target>
-
 </Project>

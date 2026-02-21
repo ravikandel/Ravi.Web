@@ -2,6 +2,7 @@ packageName: Ravi.Web.Api
 classModifier: abstract
 operationModifier: abstract
 operationResultTask: true
+OperationIsAsync: true
 useNewtonsoft: true
 sourceFolder: ""
 enumValueSuffix: ""

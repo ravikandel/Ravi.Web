@@ -1,0 +1,56 @@
+import {HttpLibrary, RequestContext, ResponseContext} from './http{{importFileExtension}}';
+import { from, Observable} from {{#useRxJS}}'rxjs'{{/useRxJS}}{{^useRxJS}}'../rxjsStub{{importFileExtension}}'{{/useRxJS}};
+{{#platforms}}
+{{#node}}
+import fetch from "node-fetch";
+{{/node}}
+{{#browser}}
+import "whatwg-fetch";
+{{/browser}}
+{{/platforms}}
+
+export class IsomorphicFetchHttpLibrary implements HttpLibrary {
+    
+    public send(request: RequestContext): Observable<ResponseContext> {
+        let method = request.getHttpMethod().toString();
+        let body = request.getBody();
+
+        const resultPromise = fetch(request.url, {
+            method: method,
+            body: body as any,
+            headers: request.getHeaders(),
+            {{#platforms}}
+            {{#node}}
+            agent: request.getAgent(),
+            {{/node}}
+            {{#browser}}
+            credentials: 'include'
+            {{/browser}}
+            {{/platforms}}
+        }).then((response : any) => {
+            const headers: {[name: string]: string} = {};
+            response.headers.forEach((value: string, name: string) => {
+                headers[name] = value;
+            });
+
+            {{#platforms}}
+            {{#node}}
+            const body = {
+                text: () => response.text(),
+                binary: () => response.buffer()
+            };
+            {{/node}}
+            {{^node}}
+            const body = {
+                text: () => response.text(),
+                binary: () => response.blob()
+            };
+            {{/node}}
+            {{/platforms}}
+            return new ResponseContext(response.status, headers, body);
+        });
+
+        return from<Promise<ResponseContext>>(resultPromise);
+        
+    }
+}
