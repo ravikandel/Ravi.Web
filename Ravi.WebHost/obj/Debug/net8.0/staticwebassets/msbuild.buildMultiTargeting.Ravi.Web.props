@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/Ravi.Web.props" />
-</Project>
