@@ -1,11 +1,13 @@
 .gitattributes
 .gitignore
 README.md
+apis/EnvironmentApi.ts
 apis/HealthCheckApi.ts
 apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
 configuration.ts
+docs/EnvironmentApi.md
 docs/HealthCheckApi.md
 git_push.sh
 http/http.ts

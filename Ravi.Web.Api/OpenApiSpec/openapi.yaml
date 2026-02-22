@@ -4,8 +4,23 @@ info:
   version: 1.0.0
 servers:
   - url: http://localhost:8090/api
+    description: Local Environment
+    
 paths:
 
+  /env:
+    get:
+      tags:
+        - Environment
+      operationId: GetEnvironment
+      responses:
+        '200':
+          description: successful response
+          content:
+            application/json:
+              schema:
+                type: string
+                
   # Health Check Controller
   /v1/health-check:
     $ref: './paths/health-check.yaml#/HealthCheck'

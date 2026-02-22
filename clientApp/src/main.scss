@@ -1,0 +1,35 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    font-size: 14px;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    box-sizing: border-box;
+}
+
+@media print{
+    .no-print,
+    button{
+        display: none !important;
+    }
+}
+
+// override bootstrap colors (must be inside a selector)
+:root {
+    --bs-primary: #134E8E;
+    --bs-primary-rgb: 20, 184, 166;
+    --bs-secondary: #6c757d;
+    --bs-success: #10B981;
+    --bs-danger: #C00707;
+    --bs-warning: #FFB33F;
+    --bs-info: #0dcaf0;
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+}

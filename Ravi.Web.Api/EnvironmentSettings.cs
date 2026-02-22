@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Ravi.WebHost.Configuration;
+namespace Ravi.Web.Api;
 public static class EnvironmentSettings
 {
     public static string GetEnvironment()

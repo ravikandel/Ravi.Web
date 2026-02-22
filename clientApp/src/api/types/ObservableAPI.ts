@@ -6,6 +6,52 @@ import {mergeMap, map} from  '../rxjsStub';
 import { HealthCheckResponseV1 } from '../models/HealthCheckResponseV1';
 import { HealthStatusEnumV1 } from '../models/HealthStatusEnumV1';
 
+import { EnvironmentApiRequestFactory, EnvironmentApiResponseProcessor} from "../apis/EnvironmentApi";
+export class ObservableEnvironmentApi {
+    private requestFactory: EnvironmentApiRequestFactory;
+    private responseProcessor: EnvironmentApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: EnvironmentApiRequestFactory,
+        responseProcessor?: EnvironmentApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new EnvironmentApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new EnvironmentApiResponseProcessor();
+    }
+
+    /**
+     */
+    public getEnvironmentWithHttpInfo(_options?: ConfigurationOptions): Observable<HttpInfo<string>> {
+        const _config = mergeConfiguration(this.configuration, _options);
+
+        const requestContextPromise = this.requestFactory.getEnvironment(_config);
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of _config.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => _config.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of _config.middleware.reverse()) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getEnvironmentWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public getEnvironment(_options?: ConfigurationOptions): Observable<string> {
+        return this.getEnvironmentWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<string>) => apiResponse.data));
+    }
+
+}
+
 import { HealthCheckApiRequestFactory, HealthCheckApiResponseProcessor} from "../apis/HealthCheckApi";
 export class ObservableHealthCheckApi {
     private requestFactory: HealthCheckApiRequestFactory;

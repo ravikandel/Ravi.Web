@@ -18,7 +18,7 @@ try
 
     var builder = WebApplication.CreateBuilder(new WebApplicationOptions
     {
-        EnvironmentName = EnvironmentSettings.GetEnvironment()
+        EnvironmentName = Ravi.Web.Api.EnvironmentSettings.GetEnvironment()
     });
 
     // ===== Nlog configuration =====

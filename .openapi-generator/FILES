@@ -1,3 +1,4 @@
+Ravi.Web.Client/Api/EnvironmentApi.cs
 Ravi.Web.Client/Api/HealthCheckApi.cs
 Ravi.Web.Client/Api/IApi.cs
 Ravi.Web.Client/Client/ApiException.cs

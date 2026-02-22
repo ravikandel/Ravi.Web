@@ -49,6 +49,7 @@ namespace Ravi.Web.Client.Client
             JsonSerializerOptionsProvider jsonSerializerOptionsProvider = new(_jsonOptions);
             _services.AddSingleton(jsonSerializerOptionsProvider);
             _services.AddSingleton<IApiFactory, ApiFactory>();
+            _services.AddSingleton<EnvironmentApiEvents>();
             _services.AddSingleton<HealthCheckApiEvents>();
         }
 
@@ -67,6 +68,7 @@ namespace Ravi.Web.Client.Client
 
             List<IHttpClientBuilder> builders = new List<IHttpClientBuilder>();
 
+            builders.Add(_services.AddHttpClient<IEnvironmentApi, EnvironmentApi>("Ravi.Web.Client.Api.IEnvironmentApi", client));
             builders.Add(_services.AddHttpClient<IHealthCheckApi, HealthCheckApi>("Ravi.Web.Client.Api.IHealthCheckApi", client));
             
             if (builder != null)
